@@ -96,7 +96,7 @@ class GeoFeatureModelSerializer(ModelSerializer):
         if self.Meta.id_field:
             field = self.fields[self.Meta.id_field]
             value = field.get_attribute(instance)
-            feature["id"] = field.to_representation(value)
+            feature[self.Meta.id_field] = field.to_representation(value)
             fields.remove(field)
 
         # required type attribute
